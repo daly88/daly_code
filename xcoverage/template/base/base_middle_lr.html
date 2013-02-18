@@ -1,0 +1,41 @@
+{% extends "base/basic.html" %}
+
+{% block topbar %}
+<span style="margin-right:30px;float:left;">{{username}}</span>
+<ol style="list-style:none">
+	<li><a href="/xyq_cover">首页</a></li>
+	<li><a href="/profile">用户信息</li>
+	<li><a href="/help">帮助</li>
+	<li><a href="/logout">登出</a></li>
+</ol>
+{% endblock %}
+
+{% block mainview %}
+
+<!-- left right layout -->
+<div id="middle_pane">
+{% block middle_pane %}
+Middle Panel
+{% endblock %}
+</div>
+<div id="left_navbar">
+<div id="left_nav_li">
+	{% block leftnav_pane %} 
+	<ul>
+		<li>Milk...</li>
+		<li>Bread<li>
+	</ul>
+	{% endblock %}
+</div>
+</div>
+
+<div id="right_pane">
+	<div id="right_ctrl">
+		{% block right_control %}right_control{% endblock %}
+	</div>
+	<div id="right_content">
+		{% block right_content %}right_content{% endblock %}
+	</div>
+</div>
+
+{% endblock %}

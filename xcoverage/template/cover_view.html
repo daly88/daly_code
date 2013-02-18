@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>XCoverage</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/content.css" />
+	<script type="text/javascript" src="/static/js/jquery-1.8.0.min.js" ></script>
+	<script type="text/javascript" src="/static/js/jquery-ui-1.8.23.min.js"></script>
+	<script type="text/javascript" src="/static/js/common.js"></script>
+	<script>
+		$(document).ready(init_ctrl);
+		function init_ctrl()
+		{
+			{{js_ctrl|safe }}
+		}
+	</script>
+</head>
+<body style="padding:0;margin:0">
+<!-- HEADER -->
+	<!-- CONTENT -->
+	<div id="cover_info">
+		<p style="font-weight:bold;color:blue;margin:0;">{{ filename }}</p>
+		<table style="font-size:14px">
+		<tr>
+			<td width="70px">DIFF分支数</td>
+			<td width="80px" style="font-weight:bold">{{covinfo.diff_cnt}} </td>
+			<td width="70px">DIFF覆盖数</td>
+			<td width="80px" style="font-weight:bold">{{covinfo.diff_cover }}</td>
+			<td>覆盖率</td>
+			<td style="font-weight:bold">{{covinfo.diff_cover_rate }} %</td>
+		</tr>
+		<tr><td></td></tr>
+		<tr>
+		<td style="color:#666666">审核状态</td>
+		<td>QC</td>
+		<td>{{qc_state|safe}}</td>
+		<td>程序</td>
+		<td>{{coder_state|safe}}</td>
+		<td>{{action|safe}}</td>
+		</tr>
+		</table>
+		<div style="margin-top:10px;border-bottom:2px solid #DDDDDD">
+		<table>
+			<tr>
+				<td width=70px><a id="v_branch" href="#">分支视图</a></td>
+				<td width=70px><a id="v_line" href="#">diff行</a></td>
+				<td width=70px><a id="v_proto" href="#">NEX协议</a></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	<p />
+	<p />
+	<div id="result_ctx" class="codeblock">
+		{{ code|safe }}
+	</div>
+
+</body>
+</html>

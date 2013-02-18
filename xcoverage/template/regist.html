@@ -1,0 +1,45 @@
+{% extends "base/base_up_down.html" %}
+
+{% block down_control %}
+<h3>新用户注册</h3>
+{% endblock %}
+
+{% block down_content %}
+<div style="margin-left:50px;">
+<form action='/regist' method="post">
+	<table>
+	<tr>
+	<td><label>用户名</label></td>
+	<td><input type="text" name="username" value="" id="username" />
+		<span style="font-size:10px;color:#FF8050">工作邮箱前缀</span></td> 
+	</tr>
+	<tr>
+		<td><label>职责</label></td>
+	<td>
+	<select name="title" id="title">
+		<option value="qc">QC</option>
+		<option value="coder">程序</option>
+	</select>
+	</td>
+	</tr>
+	<tr>
+		<td><label>密码</label></td>
+		<td><input type="password" name="password" value="" id="password" /></td>
+	</tr>
+	<tr>
+		<td><label>密码确认</label></td>
+		<td><input type="password" name="password2" value="" id="password2" /></td>
+	</tr>
+
+	<tr>
+		<td>
+		<input style="line-height:30px;margin-top:10px;width:60px;height:22px;" type="submit" name="login" value="注册" /> 
+		</td>
+		<td>
+			<span style="font-size:12px;color:red">{{error}}</span>
+		</td>
+	</tr>
+	</table>
+</form>
+</div>
+{% endblock %}

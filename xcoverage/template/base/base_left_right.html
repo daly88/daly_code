@@ -1,0 +1,26 @@
+{% extends "base/basic.html" %}
+
+{% block mainview %}
+
+<!-- left right layout -->
+<div id="left_navbar">
+<div id="left_nav_li">
+	{% block leftnav_pane %} 
+	<ul>
+		<li>Milk...</li>
+		<li>Bread<li>
+	</ul>
+	{% endblock %}
+</div>
+</div>
+
+<div id="right_pane">
+	<div id="right_ctrl">
+		{% block right_control %}right_control{% endblock %}
+	</div>
+	<div id="right_content">
+		{% block right_content %}right_content{% endblock %}
+	</div>
+</div>
+
+{% endblock %}

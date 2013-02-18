@@ -1,0 +1,10 @@
+<uwsgi>
+	<socket>127.0.0.1:8009</socket>
+	<chdir>/home1/daijun/coverage</chdir>
+	<pythonpath>.</pythonpath>
+	<master />
+	<processes>2</processes>
+	<module>wsgi</module>
+	<import>reload</import>
+	<daemonize>/home1/daijun/coverage/logs/uwsgi.log</daemonize>
+</uwsgi>

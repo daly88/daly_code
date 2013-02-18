@@ -1,0 +1,65 @@
+{% extends "base/base_up_down.html" %}
+
+{% block down_control %}
+<div class="ctrl_title">任务浏览</div>
+{% endblock %}
+
+{% block down_content %}
+	<!--content-->
+	<div id="filter_panel">
+		<span style="color:#AAAACC">列表过滤</span>
+		<form action="/xyq_cover" method="get">
+		<table>
+			<tr>
+				<td>负责人</td>
+				<td>
+					<select name="member">
+					<option value="me">自己</option>
+					<option value="all">__所有人__</option>
+					</select>
+				</td>
+				<td>状态</td>
+				<td>
+					<select name="status">
+						<option value="open">未完成</option>
+						<option value="all">全部</option>
+					</select>
+				</td>
+				<td>
+					<label>任务名</label>
+					<input style="width:80px" type="text" name="taskname" value="" /></td>
+				<td width="20px">
+				</td>
+				<td>
+					<input style="line-height:14px;width:45px;height:25px;" type="submit" name="filter" value="应用" />
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
+	<div id="trace_list">
+	<table id="tasktable" cellpadding="0" cellspacing="0">
+		<thead>
+			<th width="200px">任务名</th>
+			<th>根目录</th>
+			<th>程序</th>
+			<th>QC</th>
+			<th>日期</th>
+			<th>状态</th>
+		</thead>
+		<tbody>
+			{% for info in tasklist%}
+			<tr>
+				<td><a href="/task?taskid={{ info.id }}">{{ info.name|safe }}</a></td>
+				<td>{{ info.path_root }}</td>
+				<td>{{ info.programmer }}</td>
+				<td>{{ info.qc }}</td>
+				<td>{{ info.date }}</td>	
+				<td>{{ info.status|safe }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>	
+	</table>
+	</div>
+{% endblock %}
+

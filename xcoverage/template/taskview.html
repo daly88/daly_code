@@ -1,0 +1,46 @@
+{% extends "base/base_up_down.html" %}
+
+{% block down_control %}
+<div style="font-weight:bold;font-size:18px;color:#1010CC">{{task.name}}</div>
+<div style="height:30px;font-size:12px;">
+	<table>
+		<tr>
+			<td>程序根目录</td>
+			<td>{{task.path_root}}</td>
+			<td width="10px"></td>
+			<td>代码分支</td>
+			<td>{{task.svn_branch}}</td>
+			<td width="50px"> </td>
+			<td>{{task.action|safe}}</td>
+		</tr>
+		<tr>
+			<td>SVN基准版本</td>
+			<td>{{task.svnbase}}</td>
+		</tr>
+		<tr>
+			<td style="color:#AA6600" height="20px">{{task.status}}</td>
+		</tr>
+	</table>
+
+</div>
+{% endblock %}
+
+{% block down_content %}
+	<!--content-->
+	<div style="position:relative">
+	<div style="height:20px;font-size:12px;">文件列表</div>
+	<div id="task_filelist">
+		<ul style="margin:0px;padding-left:20px;">
+		{% for f,v in fileinfo.items %} 
+		{% if v.diff_cnt %}
+		<li style="line-height:20px;"><a href="/result?filename={{ f|safe }}&taskid={{ taskid }}" target="codeframe">{{ f|safe }} ({{v.diff_cover_rate}}%)</a></li>
+		{% endif %}
+		{% endfor %}
+		</ul>
+	</div>
+	<div id="code_view">
+		<iframe name="codeframe" style="padding:0px;width:100%;height:600px;border:1px solid #CCCCCC;overflow: scroll;"></iframe>
+	</div>
+	</div>
+{% endblock %}
+

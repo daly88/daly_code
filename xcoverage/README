@@ -1,0 +1,44 @@
+Introduction
+-------------------------
+
+XCoverage is a test coverage web application for script language.
+It is written by Python.
+It consists:
+  1. script parser to specific script language (top-down code block parser)
+  2. coverage result persentation
+  3. simple QC and coder authentication and permission management 
+
+How it works
+-------------------------
+In order to get the script test coverage result, hack the script 
+virtual machine code, add hook code in opcode interpretor. (modify 
+script engine source)
+The script of application to be tested, we call target application.
+
+The whole test process:
+1. create a Test task in target application
+2. run script in target application
+3. generate coverage result(XML file in our format)
+4. send to repository by Http interface
+5. check the result in web page.
+
+This application code include step 4 and 5. the Test task metadata 
+shared by our apps and target application via MySQL.
+
+Run enviornment
+--------------------------
+1. MySQL DB
+2. Python 2.6
+3. nginx web server + uwsgi (recommended)
+4. Jquery (already put in our source code)
+
+char code: GBK chinese
+
+Author
+-------------------------
+
+Daly 
+E-mail: dalydaijun@163.com
+Weibo:  weibo.com/dalydaijun
+
+

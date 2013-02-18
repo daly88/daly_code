@@ -1,0 +1,32 @@
+{% extends "base/base_middle_lr.html" %}
+
+{% block middle_pane %}
+<h3>
+	用户信息	
+</h3>
+{% endblock %}
+
+{% block leftnav_pane %}
+<ul>
+<li>修改密码</li>
+</ul>
+{% endblock %}
+
+{% block right_control %}
+{% endblock %}
+
+{% block right_content %}
+<div>
+<form action='/profile' method="post">
+	<span style="margin-right:10px;color:#3030FF">{{username}}</span>
+	<span style="margin-right:10px;margin-bottom:20px;color:#3030FF">{{title}}</span><br /><br />
+	<label style="font-size:12px">新密码</label><br />
+	<input type="password" name="password" value="" id="password" /> <br />
+	<label style="font-size:12px">密码确认</label> <br />
+	<input type="password" name="password2" value="" id="password2" /> <br />
+
+	<input style="line-height:30px;margin-top:10px;width:80px;height:22px;" type="submit" name="login" value="保存修改" /> <br />	
+	<span style="margin-right:10px;color:#FF6060">{{error}}</span>
+</form>
+</div>
+{% endblock %}

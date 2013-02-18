@@ -1,0 +1,136 @@
+/*main stylesheet*/
+
+#task_filelist
+{
+	width: 350px;	
+	display: block;
+}
+
+div#task_filelist li
+{
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+#header_wrap {
+	margin: 10px;
+	height:40px;
+}
+
+#header_title {
+	font-weight:bold;
+	color: #FF0000;
+}
+
+#code_view {
+	position: absolute;
+	left: 350px;
+	top: 0px;
+	display: block;
+	width: 78%;
+	padding: 0px;
+}
+
+#main_wrap {
+	margin: 0 20px;
+}
+
+#cover_info {
+	text-align: left;
+	font-size: 14px;
+	background-color:#FFFCE8;
+	margin: 0px;
+}
+
+div.codeblock p{
+	line-height: 18px;
+	margin-top:0;
+	margin-bottom:0;
+	font-size: 12px;
+}
+
+#tasktable {
+	border:1px solid #E4E4E4;
+	border-collapse:collapse;
+	width: 100%;
+	text-align: center;
+}
+
+table#tasktable th{
+	background-color: #EEEEEE;
+}
+
+table#tasktable tr{
+	line-height: 22px;
+}
+
+.lines {
+	width:20px;
+}
+
+.lineinfo {
+	color:#BBBBBB;
+	margin-right:8px;
+}
+
+.codeblock {
+	text-align:left;
+	padding-left: 5px;
+	line-height:16px;
+	font-size: 12px;
+	vertical-align: top;
+}
+
+.c_unrun {
+	color:red;
+}
+
+.c_run_highlight {
+	color:blue;
+}
+
+.c_run {
+	color:#6666FF;
+}
+
+.c_debug {
+	color:#00CC00;
+}
+
+.c_unrun_nodiff {
+	color: #FFAAAA;
+}
+
+.c_merge_run {
+	color:#6666FF;
+	margin-left:60px;
+}
+
+.c_merge_unrun {
+	color:#FF0000;
+	width:300px;
+	margin-left:60px
+}
+
+.c_merge_unrun_nodiff {
+	color:#FFAAAA;
+	width:300px;
+	margin-left:60px
+
+}
+
+.tlist {
+	text-align:left;
+}
+
+#filter_panel
+{
+	font-size: 10px;
+	margin-bottom: 10px;
+}
+
+#trace_list
+{
+	margin-bottom: 40px;
+}

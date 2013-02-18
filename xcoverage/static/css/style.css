@@ -1,0 +1,205 @@
+
+head, div, h1, h2, form, table
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+div#topbar a:visited, 
+div#topbar a:link
+{
+	color: #ECECEC;
+	text-decoration: none;
+}
+
+div#topbar a:hover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+li a:visited,
+li a:link
+{
+	color: #30303F;
+	text-decoration: none;
+}
+
+li a:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+body
+{
+	margin: 0;
+	padding: 0;
+	clear: both;
+   	vertical-align: baseline;
+	height: auto;
+}
+
+#topbar
+{
+	height: 28px;
+	line-height: 25px;
+	background-color: #115294;
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight:bold;
+	padding-right: 15px;
+}
+
+div#topbar ol
+{
+	margin: 0px;
+}
+
+div#topbar li
+{
+	float: left;
+	text-align: left;
+	margin-right: 20px;
+}
+
+#navbar
+{
+	margin: auto;
+	padding-left: 25px;
+	background-color: #EFEFF3;  
+	color: #0A1F66;
+	height:60px;
+	border-bottom: 1px solid #CCCCCC;
+	vertical-align: center;
+	line-height: 60px;
+	font-weight:bold;
+	font-size: 20px;
+}
+
+
+#mainview
+{
+	height: 100%;
+}
+
+#left_navbar
+{
+	width: 200px;
+	height: 100%;
+	min-height: 200px;
+	/*  background-color: #F3F3F3;  */
+	border-right: 1px solid #DDDDDD;  
+	float: left;
+	line-height:18px;
+}
+
+
+
+#left_nav_li
+{
+	margin-top: 20px;
+}
+
+#left_nav_li ul
+{
+	list-style: none;
+	padding: 0px;
+	border: 0px;
+}
+
+#right_pane
+{
+	height: 100%;
+	text-align: left;
+}
+
+#right_control
+{
+	height: 40px;
+	font-size: 16px;
+    font-weight:bold;
+	color: blue;
+}
+
+#right_content
+{
+
+}
+
+#login_pane
+{
+	padding-left:50px;
+	position: absolute;
+	left:160px;
+	top:160px;
+	width: 400px;
+	height: 250px;
+	border: 1px solid gray;
+	background-color: #F0F0FA;
+}
+
+#down_pane
+{
+	position: relative;
+}
+
+#down_ctrl
+{
+	padding-left: 20px;
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+
+#down_content
+{
+
+
+}
+
+#middle_pane
+{
+	height: 100px;
+	margin: 0;
+}
+
+.tb_row_hover 
+{
+	background-color: #FBF8E2;
+}
+
+.li_nav_hover 
+{
+	background-color:#F4F4F4;
+}
+
+.li_selected
+{
+	color:blue;
+}
+
+/* common table list */
+.tbl_list
+{
+	border-spacing: 0px 0px;
+	border-collapse: separate;	
+	width: 80%;
+	margin-left: 20px;
+	border: 1px solid gray;
+}
+
+table.tbl_list th {
+	background-color: #FFFFDD;
+	border-bottom: 1px solid #CCC;
+	padding: 2px 2px;
+	text-align: left;
+}
+
+.ctrl_title
+{
+	color: #d15409;
+	font-size: 18px;
+    font-weight:bold;
+	line-height: 26px;
+}

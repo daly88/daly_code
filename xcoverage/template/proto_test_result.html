@@ -1,0 +1,27 @@
+
+<div>
+<h3>协议测试历史</h3>
+
+{% for k,v in data.items %}
+
+<p style="margin-left: 20px;color:blue;">回调函数:{{k}}</p>
+<p style="margin-left: 20px">主协议: {{v.main}} 子协议: {{v.sub}}</p>
+<table class="tbl_list">
+<thead>
+	{% for k in v.head %}
+	<th>{{k}}</th>
+	{% endfor %}
+</thead>
+<tbody>
+	{% for r in v.res %}
+	<tr>
+		{% for v in r %}
+		<td> {{v|safe}}	</td>
+		{% endfor %} </tr>
+	{% endfor %}
+</tbody>
+</table>
+<p><br /></p>
+
+{% endfor %}
+</div>
