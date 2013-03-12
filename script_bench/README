@@ -1,0 +1,19 @@
+
+Intro
+------------------------
+a benchmark for dynamic script language performance which widely used in game development (simulate in a real product evironment)
+
+The main structure of a game is usually a event driven loop.
+
+The factor affect performance in a real online game include :
+  1.  engine(C/C++) <---> VM call (script extend / embedded)
+  2.  massive object create/destroy (Garbage Collection)
+  3.  lots of function call
+  4.  map(dict) / array manipulation
+  5.  string manipulation (concat, split, slice, search, replace)
+
+Run
+---------------------------
+  freebsd/Linux
+  python 2.5 or above
+  lua 5.1 or above
