@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/bin/python
 #coding=utf-8
 import sys
 import xlrd
@@ -210,8 +210,8 @@ def output_diff(sh_old, sh_new):
 def do_diff(book_old, book_new):
 	wb_old = Workbook(book_old)
 	wb_new = Workbook(book_new)
-	print 'Index: %s' % book_old
-	print '======================================'
+	#print 'Index: %s' % book_new
+	#print '======================================'
 	if wb_old.nsheets() != wb_new.nsheets():
 		print 'diffrent sheet count'
 		return 
@@ -227,5 +227,16 @@ if __name__ == '__main__':
 	if len(args) < 2:
 		print 'xldiff book_old book_new' 
 		sys.exit(0)
-	do_diff(args[1], args[2])
+	if len(args) == 8 and args[1] == '-u':
+		print '--- %s' % args[3]
+		print '+++ %s' % args[5]
+
+		#pass from svn parameter
+		do_diff(args[6], args[7])
+	else:
+		#not from svn diff, just diff with two excel files
+		print 'Index: %s' % args[2] 
+		print '======================================'
+
+		do_diff(args[1], args[2])
 
