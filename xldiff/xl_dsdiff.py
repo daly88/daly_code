@@ -10,13 +10,29 @@
 # two sheet must have the same amount of sheet with the same sheet name
 # Author: Daly 2013-5
 
-import sys
+import sys,os
 import xlrd
 import hashlib
+import platform
 
 INPUT_CHARSET = 'gbk'
+OUTPUT_CHARSET = 'gbk'
 MAX_SHOWFIELD = 6
 MAX_FIELD_LEN = 8
+
+OS_NAME = platform.system()
+
+TMP_FILE = 'xldiff.tmp'
+gTmpFile = None
+
+def output(msg):
+	global gTmpFile
+	if OS_NAME == 'Windows':
+		if not gTmpFile: gTmpFile = open(TMP_FILE, 'w+')
+		gTmpFile.write((msg + u'\r\n').encode(OUTPUT_CHARSET))
+		#output to tmp file, so the Notepad can open it later
+
+	print msg
 
 class DsDiffTool(object):
 	def __init__(self, sh_old, sh_new):
@@ -123,15 +139,15 @@ class DataSheet(object):
 def output_diff(sh_old, sh_new):
 	df = DsDiffTool(sh_old, sh_new)
 	df.compute_diff()
-	print u'@@ %s @@' % sh_new.sheet_.name
+	output(u'@@ %s @@' % sh_new.sheet_.name)
 	if len(df.pure_del) > 0:
-		print '===DEL==='
-		for i in df.pure_del: print u'- %d ' % i + sh_old.serialize_row(i)
+		output('===DEL===')
+		for i in df.pure_del: output(u'- %d ' % i + sh_old.serialize_row(i))
 	if len(df.pure_add) > 0:
-		print '===ADD==='
-		for i in df.pure_add: print u'+ %d ' % i + sh_new.serialize_row(i)
+		output('===ADD===')
+		for i in df.pure_add: output(u'+ %d ' % i + sh_new.serialize_row(i))
 	if len(df.modify) > 0:
-		print '===MOD==='
+		output('===MOD===')
 		for i in df.modify: 
 			msg1 = u''
 			msg2 = u''
@@ -144,8 +160,8 @@ def output_diff(sh_old, sh_new):
 					msg1 = msg1 + u'%s: %s   ' % (sh_old.title_[f], v1)
 					msg2 = msg2 + u'%s: %s   ' % (sh_new.title_[f], v2)
 
-			print u'- %d ' % i[0] + sh_old.str_value(i[0]-1, 0) + u' ' + msg1
-			print u'+ %d ' % i[1] + sh_new.str_value(i[1]-1, 0) + u' ' + msg2
+			output(u'- %d ' % i[0] + sh_old.str_value(i[0]-1, 0) + u' ' + msg1)
+			output(u'+ %d ' % i[1] + sh_new.str_value(i[1]-1, 0) + u' ' + msg2)
 
 
 def do_diff(book_old, book_new):	
@@ -167,15 +183,23 @@ if __name__ == '__main__':
 		print 'xldiff book_old book_new' 
 		sys.exit(0)
 	if len(args) == 8 and args[1] == '-u':
-		print '--- %s' % args[3]
-		print '+++ %s' % args[5]
+		output('--- %s' % args[3])
+		output('+++ %s' % args[5])
 
 		#pass from svn parameter
 		do_diff(args[6], args[7])
 	else:
 		#not from svn diff, just diff with two excel files
-		print 'Index: %s' % args[2] 
-		print '======================================'
+		#or Tortoise SVN in windows
+		book_shortname = args[2].split('\\')[-1]
+		if OS_NAME == 'Windows': TMP_FILE = 'xldiff.%s.tmp' % book_shortname
+		output('Index: %s' % args[2])
+		output('======================================')
 
 		do_diff(args[1], args[2])
+
+	if OS_NAME == 'Windows':
+		if gTmpFile: gTmpFile.close()
+		os.system('notepad.exe %s' % TMP_FILE)
+		os.remove(TMP_FILE)
 
