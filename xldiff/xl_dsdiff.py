@@ -160,8 +160,8 @@ def output_diff(sh_old, sh_new):
 					msg1 = msg1 + u'%s: %s   ' % (sh_old.title_[f], v1)
 					msg2 = msg2 + u'%s: %s   ' % (sh_new.title_[f], v2)
 
-			output(u'- %d ' % i[0] + sh_old.str_value(i[0]-1, 0) + u' ' + msg1)
-			output(u'+ %d ' % i[1] + sh_new.str_value(i[1]-1, 0) + u' ' + msg2)
+			output(u'- %d ' % (i[0]+1) + sh_old.str_value(i[0], 0) + u' ' + msg1)
+			output(u'+ %d ' % (i[1]+1) + sh_new.str_value(i[1], 0) + u' ' + msg2)
 
 
 def do_diff(book_old, book_new):	
